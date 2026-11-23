@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Run tests
-        run: flutter test
+      - name: Run tests if present
+        run: if [ -d "test" ]; then flutter test; fi
 
       - name: Build release APK
         run: flutter build apk --release
